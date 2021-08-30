@@ -14,8 +14,6 @@ public class Iggy {
 
     public static JDABuilder builder;
 
-    public static final String PREFIX = "!";
-
     public static final String WELCOME_CHANNEL_NAME = "welcome";
 
     /**
