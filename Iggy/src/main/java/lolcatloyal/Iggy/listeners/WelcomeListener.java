@@ -38,7 +38,7 @@ public class WelcomeListener extends ListenerAdapter {
     public void onGuildMemberJoin(@Nonnull GuildMemberJoinEvent event) {
         User newMember = event.getUser();
 
-        if (newMember.isBot()){ //TODO: add !
+        if (!newMember.isBot()){
             List<TextChannel> welcomeChannels = event.getGuild().getTextChannelsByName(Iggy.WELCOME_CHANNEL_NAME, true);
 
             if (!welcomeChannels.isEmpty()){
