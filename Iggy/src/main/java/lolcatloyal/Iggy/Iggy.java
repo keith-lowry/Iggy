@@ -25,7 +25,10 @@ public class Iggy {
      * @throws LoginException if the provided token is invalid.
      */
     public static void main(String[] args) throws LoginException {
-        builder = JDABuilder.createDefault(args[0]);
+
+        String token = System.getenv("IGGYTOKEN");
+
+        builder = JDABuilder.createDefault(token);
 
         builder.disableCache(CacheFlag.MEMBER_OVERRIDES, CacheFlag.VOICE_STATE);
 
