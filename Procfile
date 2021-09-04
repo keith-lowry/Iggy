@@ -1,1 +1,1 @@
-Worker: java Iggy/Iggy/src/main/java/lolcatloyal/Iggy/Iggy.java
+worker: java Iggy/Iggy/src/main/java/lolcatloyal/Iggy/Iggy.java
