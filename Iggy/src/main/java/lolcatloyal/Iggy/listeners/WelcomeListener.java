@@ -16,25 +16,36 @@ import java.util.Random;
  */
 public class WelcomeListener extends ListenerAdapter {
 
-    private static final String[] WELCOME_MESSAGES = {"We've been expecting you ", "Welcome ", "Hey there "};
+    private static final String[] WELCOME_MESSAGES = {" Yare Yare, feel free to be helpful and join the chat",
+            " It's not like we like you here or anything b-b-b-baka",
+            " Shishishishishi, nice to see you here", " N..nani?? Where'd you come from?!",
+            " Muramuramuramura, welcome to anime club!!!!"};
 
     private final Random r;
 
     public WelcomeListener() {
         r = new Random();
     }
+
+    /**
+     * When a member joins the server, a welcome message will be
+     * sent in the welcome channel if the new member is not
+     * a bot.
+     * @param event GuildMemberJoinEvent signalling a new member
+     *              has joined the server.
+     */
     @Override
     public void onGuildMemberJoin(@Nonnull GuildMemberJoinEvent event) {
         User newMember = event.getUser();
 
         if (newMember.isBot()){ //TODO: add !
-            String mention = newMember.getAsMention();
-
             List<TextChannel> welcomeChannels = event.getGuild().getTextChannelsByName(Iggy.WELCOME_CHANNEL_NAME, true);
 
             if (!welcomeChannels.isEmpty()){
+                String mention = newMember.getAsMention();
+
                 //Send welcome message in first welcome text channel
-                welcomeChannels.get(0).sendMessage(chooseWelcomeMessage() + mention).queue();
+                welcomeChannels.get(0).sendMessage(mention + chooseWelcomeMessage()).queue();
             }
         }
     }
@@ -42,8 +53,9 @@ public class WelcomeListener extends ListenerAdapter {
     /**
      * Choose and return a random welcome
      * message from the array of welcome
-     * messages
-     * @return
+     * messages.
+     *
+     * @return A random welcome message.
      */
     private String chooseWelcomeMessage(){
         int i = r.nextInt(WELCOME_MESSAGES.length);

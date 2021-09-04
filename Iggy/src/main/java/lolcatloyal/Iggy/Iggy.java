@@ -29,7 +29,7 @@ public class Iggy {
 
         builder.setCompression(Compression.NONE);
 
-        builder.setActivity(Activity.playing("Welcome"));
+        builder.setActivity(Activity.watching("JoJo"));
         builder.enableIntents(GatewayIntent.GUILD_MEMBERS);
 
         registerListeners();
@@ -38,7 +38,7 @@ public class Iggy {
     }
 
     /**
-     * Add Welcome and Settings listeners.
+     * Register new WelcomeListener to the JDA builder.
      */
     private static void registerListeners(){
         builder.addEventListeners(new WelcomeListener());
