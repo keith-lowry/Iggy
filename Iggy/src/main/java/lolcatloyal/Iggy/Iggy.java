@@ -9,7 +9,9 @@ import net.dv8tion.jda.api.utils.cache.CacheFlag;
 
 import javax.security.auth.login.LoginException;
 
-
+/**
+ * Main class for setting up Iggy bot.
+ */
 public class Iggy {
 
     public static JDABuilder builder;
